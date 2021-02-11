@@ -65,6 +65,11 @@ function App() {
             {Math.round(weather.current.temp)}°C
           </div>
           <div className="weather"> {weather.current.weather[0].main}</div>
+          <div className="weather_icon">
+            <img
+              src={`http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`}
+            />
+          </div>
         </div>
       ) : (
         ""
