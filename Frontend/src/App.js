@@ -23,9 +23,7 @@ function App() {
 
   useEffect(() => {
     getCoordinates();
-  });
-
-  // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+  }, []);
 
   useEffect(() => {
     console.log(term);
@@ -60,9 +58,6 @@ function App() {
     }
   }, [latitude, longitude, term]);
 
-  // const [{}, dispatch] = useStateValue();
-  // const [input, setInput] = useState("");
-
   const search = (e) => {
     e.preventDefault();
     console.log("fired====>");
@@ -70,38 +65,43 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="header">
-        <h1>Wonderous Weather</h1>
-      </div>
-      <div className="header_choice">
-        <div className="search">
-          <form>
-            <div className="search__input">
-              <input value={input} onChange={(e) => setInput(e.target.value)} />
-            </div>
+    <div className="app">
+      <div className="app__box">
+        <div className="app__title">
+          <h1>Wonderous Weather</h1>
+        </div>
+
+        <form className="search">
+          <div className="search__input">
+            <input value={input} onChange={(e) => setInput(e.target.value)} />
+
             <button onClick={search} type="submit">
               Search
             </button>
-          </form>
-        </div>
-      </div>
-
-      {weather.main !== undefined ? (
-        <div className="weather_box">
-          <div className="location">{weather.name}</div>
-          <div className="temperature">{Math.round(weather.main?.temp)}°C</div>
-          <div className="weather"> {weather.weather[0]?.main}</div>
-          <div className="weather_icon">
-            <img
-              src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-              alt=""
-            />
           </div>
-        </div>
-      ) : (
-        ""
-      )}
+        </form>
+
+        {weather.main !== undefined ? (
+          <div className="weather">
+            <div className="weather__location">{weather.name}</div>
+            <div className="weather__temperature">
+              {Math.round(weather.main?.temp)}°C
+            </div>
+            <div className="weather__conditions">
+              {" "}
+              {weather.weather[0]?.main}
+            </div>
+            <div className="weather__icon">
+              <img
+                src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                alt=""
+              />
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
