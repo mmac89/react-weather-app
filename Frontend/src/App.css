@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .app {
   margin: -10px;
   padding: 0;
@@ -6,14 +10,15 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  background-color: bisque;
+  background-color: #ffb88d;
 }
 
 .app__box {
   text-align: center;
   height: 90vh;
   width: 95vw;
-  background-color: slategrey;
+  background-color: #2b2b2b;
+  box-shadow: 5px 5px 5px #515151;
 }
 
 .app__title > h1 {
@@ -25,23 +30,51 @@
 .search {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-width: 600px;
+  margin-bottom: 30px;
 }
 
 .search__input {
-  flex: 1;
-  border: snow 2px solid;
-  border-radius: 20px;
-  padding: 10px;
+  border: #fff 1px solid;
+  border-radius: 999px;
+
   border: none;
   background-color: #fff;
+  min-width: 40vw;
+  display: flex;
 }
 
 .search__input > input {
   border: none;
+  flex: 1;
+  margin: 10px;
+  padding: 5px 10px;
 }
 
 .search__input > input:focus {
   outline-width: 0;
+}
+
+.search__inputButton {
+  margin: 0;
+  display: flex;
+  background-color: #ffb98df3;
+  border-radius: 999px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: #e7a577 1px solid;
+}
+.search__inputButton > button {
+  background-color: #ffb88d;
+  color: #fff;
+  font-weight: 500;
+  justify-self: center;
+  align-self: center;
+  margin: auto;
+  border: none;
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.search__inputButton > button:active {
+  box-shadow: none;
 }

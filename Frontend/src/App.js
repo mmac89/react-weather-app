@@ -71,15 +71,22 @@ function App() {
           <h1>Wonderous Weather</h1>
         </div>
 
-        <form className="search">
-          <div className="search__input">
-            <input value={input} onChange={(e) => setInput(e.target.value)} />
-
-            <button onClick={search} type="submit">
-              Search
-            </button>
-          </div>
-        </form>
+        <div className="search">
+          <form>
+            <div className="search__input">
+              <input
+                value={input}
+                placeholder="please search for a city"
+                onChange={(e) => setInput(e.target.value)}
+              />
+              <div className="search__inputButton">
+                <button onClick={search} type="submit">
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
 
         {weather.main !== undefined ? (
           <div className="weather">
